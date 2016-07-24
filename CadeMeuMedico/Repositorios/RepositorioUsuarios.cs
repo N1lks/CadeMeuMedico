@@ -28,5 +28,37 @@ namespace CadeMeuMedico.Repositorios
 				}
 			}
 		}
+
+		public static Usuario RecuperaUsuarioPorID(long IDUsuario)
+		{
+			try
+			{
+				using (CadeMeuMedicoBDEntities db = new CadeMeuMedicoBDEntities())
+				{
+					var usuario =
+						db.Usuario.Where(u => u.IDUsuario == IDUsuario).SingleOrDefault();
+					return usuario;
+				}
+			}
+			catch(Exception)
+			{
+				return null;
+			}
+		}
+
+		public static Usuario VerificaSeOUsuarioEstaLogado()
+		{
+			var usuario = HttpContext.Current.Request.Cookies["UserCookieAuthentication"];
+			if (usuario == null)
+			{
+				return null;
+			}else
+			{
+				long IDUsuario = Convert.ToInt64(RepositorioCriptografia.Descriptografar(usuario.Values["IDUsuario"]));
+
+				var usuarioRetornado = RecuperaUsuarioPorID(IDUsuario);
+				return usuarioRetornado;
+			}
+		}
 	}
 }

@@ -8,7 +8,7 @@ using System.Data.Entity;
 
 namespace CadeMeuMedico.Controllers
 {
-    public class CidadesController : Controller
+    public class CidadesController : BaseController
     {
 		private CadeMeuMedicoBDEntities db = new CadeMeuMedicoBDEntities();
         // GET: Cidades

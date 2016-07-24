@@ -27,7 +27,7 @@ namespace CadeMeuMedico.Controllers
 				return Json(new
 				{
 					OK = false,
-					Mensagem = "Usuário não autenticado. Tente novamente."
+					Mensagem = "Usuário não encontrado. Tente novamente."
 				},
 					JsonRequestBehavior.AllowGet);
 			}
