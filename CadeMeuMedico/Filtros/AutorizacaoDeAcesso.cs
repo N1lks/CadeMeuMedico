@@ -18,8 +18,8 @@ namespace CadeMeuMedico.Filtros
 			{
 				if (RepositorioUsuarios.VerificaSeOUsuarioEstaLogado() == null)
 				{
-					FiltroDeContexto.RequestContext.HttpContext.Response.Redirect("/Home/Login?Url=" +
-						FiltroDeContexto.HttpContext.Request.Url.LocalPath);
+					FiltroDeContexto.RequestContext.HttpContext.Response.Redirect("/Home/Login?Url=");
+						//+ FiltroDeContexto.HttpContext.Request.Url.LocalPath);
 
 				}
 			}

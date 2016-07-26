@@ -24,10 +24,41 @@
         </td>
         <td>
             @Html.ActionLink("Editar", "Editar", new { id=item.IDCidade }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IDCidade }) |
-            @Html.ActionLink("Delete", "Deletar", new { id=item.IDCidade })
+            @Html.ActionLink("Deletar", "Deletar", new { id=item.IDCidade }, new {@class="deletar")
         </td>
     </tr>
 }
 
 </table>
+@section Scripts{
+	<script>
+        $(function () {
+            var linhaAtual;
+
+            $("#menuMedicos").addClass("active");
+
+            $(".deletar").on("click", function () {
+                if (confirm("Confirma a exclusão da cidade?")) {
+                    var urlExclusao = $(this).attr("href");
+                    linhaAtual = $(this).closest("tr");
+
+                    $.ajax({
+                        url: urlExclusao,
+                        type: "POST"
+                    }).done(function (excluiu) {
+                        if (excluiu) {
+                            linhaAtual.remove();
+                        } else {
+                            alert("Ocorreu algum problema na exclusão da cidade :(");
+                        }
+                    }).fail(function () {
+                        alert("Ocorreu algum erro :(");
+                    });
+                }
+
+                return false;
+            });
+        });
+
+	</script>
+}

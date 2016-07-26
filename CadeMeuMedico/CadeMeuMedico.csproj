@@ -192,6 +192,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModeloDeDados.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Pesquisa.cs" />
+    <Compile Include="Models\ResultadoPesquisa.cs" />
     <Compile Include="Models\Usuario.cs">
       <DependentUpon>ModeloDeDados.tt</DependentUpon>
     </Compile>
@@ -215,7 +217,6 @@
     <Content Include="Views\Medicos\Deletar.cshtml" />
     <Content Include="Views\Especialidades\Adicionar.cshtml" />
     <Content Include="Views\Especialidades\Deletar.cshtml" />
-    <Content Include="Views\Especialidades\Details.cshtml" />
     <Content Include="Views\Especialidades\Index.cshtml" />
     <Content Include="Views\Especialidades\Editar.cshtml" />
     <Content Include="Views\Cidades\Index.cshtml" />

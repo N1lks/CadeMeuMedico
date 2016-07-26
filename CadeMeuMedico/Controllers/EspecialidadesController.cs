@@ -28,7 +28,6 @@ namespace CadeMeuMedico.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				//Especialidade especialidade = db.Especialidade.Find(id);
 				db.Especialidade.Add(especialidade);
 				db.SaveChanges();
 				return RedirectToAction("Index");
@@ -61,18 +60,21 @@ namespace CadeMeuMedico.Controllers
 		}
 
 		[HttpPost]
-		public string Deletar(Especialidade especialidade)
+		public string Deletar(Medico medico)
 		{
 			try
 			{
-				db.Especialidade.Remove(especialidade);
+				//Medico medico = db.Medico.Find(id);
+				db.Medico.Remove(medico);
+				db.SaveChanges();
 				return Boolean.TrueString;
+
 			}
 			catch
 			{
 				return Boolean.FalseString;
 			}
-
 		}
+
     }
 }
